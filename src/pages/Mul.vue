@@ -21,6 +21,27 @@
         </td>
       </tr>
     </table>
+    <table>
+      <tr>
+        <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/spider.png" />
+          蜘蛛人乘法表
+        </th>
+        <th v-for="i in items2" :key="i">
+          {{toS(i)}}
+        </th>
+      </tr>
+      <tr v-for="i in items2" :key="i">
+        <th>
+          {{ toS(i) }}
+        </th>
+        <td v-for="j in items2" :key="j" class="bold green">
+          {{ toS(i * j) }}
+        </td>
+      </tr>
+    </table>
   </q-page>
 </template>
 
@@ -29,7 +50,8 @@ export default {
   name: 'PageIndex',
   data() {
     return {
-      items: [1,2,3,4,5]
+      items: [1,2,3,4,5],
+      items2: [1,2,3,4,5,6,7]
     }
   },
   methods: {
@@ -38,6 +60,14 @@ export default {
       while (num > 0) {
         ans.unshift(num %  6)
         num = Math.floor(num / 6)
+      }
+      return ans.join('')
+    },
+    toS(num) {
+      var ans = []
+      while (num > 0) {
+        ans.unshift(num %  8)
+        num = Math.floor(num / 8)
       }
       return ans.join('')
     }

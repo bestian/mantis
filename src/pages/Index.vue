@@ -14,6 +14,12 @@
           src="https://bestian.github.io/mantis/logo.png" />
           螳螂人數學  
         </th>
+        <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/spider.png" />
+          蜘蛛人數學  
+        </th>
       </tr>
       <tr v-for="i in items" :key="i">
         <td>
@@ -21,6 +27,9 @@
         </td>
         <td class="bold green">
           {{ toM(i) }}
+        </td>
+        <td class="bold green">
+          {{ toS(i) }}
         </td>
       </tr>
     </table>
@@ -41,6 +50,14 @@ export default {
       while (num > 0) {
         ans.unshift(num %  6)
         num = Math.floor(num / 6)
+      }
+      return ans.join('')
+    },
+    toS(num) {
+      var ans = []
+      while (num > 0) {
+        ans.unshift(num %  8)
+        num = Math.floor(num / 8)
       }
       return ans.join('')
     }
