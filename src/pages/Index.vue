@@ -20,6 +20,18 @@
           src="https://bestian.github.io/mantis/spider.png" />
           蜘蛛人數學  
         </th>
+        <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/frog.png" />
+          青蛙人數學  
+        </th>
+        <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/binary.png" />
+          二進制數學  
+        </th>
       </tr>
       <tr v-for="i in items" :key="i">
         <td>
@@ -28,8 +40,14 @@
         <td class="bold green">
           {{ toM(i) }}
         </td>
-        <td class="bold green">
+        <td class="bold brown">
           {{ toS(i) }}
+        </td>
+        <td class="bold blue">
+          {{ toF(i) }}
+        </td>
+        <td class="bold gold">
+          {{ toB(i) }}
         </td>
       </tr>
     </table>
@@ -48,7 +66,7 @@ export default {
     toM(num) {
       var ans = []
       while (num > 0) {
-        ans.unshift(num %  6)
+        ans.unshift(num % 6)
         num = Math.floor(num / 6)
       }
       return ans.join('')
@@ -56,8 +74,24 @@ export default {
     toS(num) {
       var ans = []
       while (num > 0) {
-        ans.unshift(num %  8)
+        ans.unshift(num % 8)
         num = Math.floor(num / 8)
+      }
+      return ans.join('')
+    },
+    toF(num) {
+      var ans = []
+      while (num > 0) {
+        ans.unshift(num % 4)
+        num = Math.floor(num / 4)
+      }
+      return ans.join('')
+    },
+    toB(num) {
+      var ans = []
+      while (num > 0) {
+        ans.unshift(num % 2)
+        num = Math.floor(num / 2)
       }
       return ans.join('')
     }

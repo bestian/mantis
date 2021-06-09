@@ -37,8 +37,50 @@
         <th>
           {{ toS(i) }}
         </th>
-        <td v-for="j in items2" :key="j" class="bold green">
+        <td v-for="j in items2" :key="j" class="bold brown">
           {{ toS(i * j) }}
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/frog.png" />
+          青蛙人乘法表
+        </th>
+        <th v-for="i in items3" :key="i">
+          {{toF(i)}}
+        </th>
+      </tr>
+      <tr v-for="i in items3" :key="i">
+        <th>
+          {{ toF(i) }}
+        </th>
+        <td v-for="j in items3" :key="j" class="bold blue">
+          {{ toF(i * j) }}
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/binary.png" />
+          二進制乘法表
+        </th>
+        <th v-for="i in items4" :key="i">
+          {{toB(i)}}
+        </th>
+      </tr>
+      <tr v-for="i in items4" :key="i">
+        <th>
+          {{ toB(i) }}
+        </th>
+        <td v-for="j in items4" :key="j" class="bold gold">
+          {{ toB(i * j) }}
         </td>
       </tr>
     </table>
@@ -51,7 +93,9 @@ export default {
   data() {
     return {
       items: [1,2,3,4,5],
-      items2: [1,2,3,4,5,6,7]
+      items2: [1,2,3,4,5,6,7],
+      items3: [1,2,3],
+      items4: [1,2,3,4,5]
     }
   },
   methods: {
@@ -68,6 +112,22 @@ export default {
       while (num > 0) {
         ans.unshift(num %  8)
         num = Math.floor(num / 8)
+      }
+      return ans.join('')
+    },
+    toF(num) {
+      var ans = []
+      while (num > 0) {
+        ans.unshift(num % 4)
+        num = Math.floor(num / 4)
+      }
+      return ans.join('')
+    },
+    toB(num) {
+      var ans = []
+      while (num > 0) {
+        ans.unshift(num % 2)
+        num = Math.floor(num / 2)
       }
       return ans.join('')
     }
@@ -93,5 +153,9 @@ export default {
 
   th {
     background-color: #eee;
+  }
+
+  th:first-child, td:first-child {
+    width: 180px;
   }
 </style>
