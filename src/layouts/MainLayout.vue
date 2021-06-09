@@ -35,6 +35,7 @@
         <q-item to="/">數字表</q-item>
         <q-item to="/plus">加法表</q-item>
         <q-item to="/mul">乘法表</q-item>
+        <q-item to="/quiz">小測驗</q-item>
       </q-list>
     </q-drawer>
 
