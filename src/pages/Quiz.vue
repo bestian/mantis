@@ -1,8 +1,11 @@
 <template>
   <q-page class="flex flex-center col">
-    <div><h4>小測驗</h4></div>
-    <div><h4>{{toM(n)}} + {{toM(m)}} = ?<q-input type="text" name="ans" v-model="ans" @input="check()" placeholder="你的答案"/></h4></div>
-    <div><q-btn color = "primary" v-if = "win" @click="reset()">答對了! 按此再來</q-btn></div>
+    <div><h4>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/logo.png" />小測驗</h4></div>
+    <div><h4 class="bold green">{{toM(n)}} + {{toM(m)}} = ?<q-input type="text" name="ans" v-model="ans" @input="check()" placeholder="你的答案"/></h4></div>
+    <div><q-btn size="xl" color = "primary" v-if = "win" @click="reset()">答對了! 按此再來</q-btn></div>
   </q-page>
 </template>
 
@@ -54,6 +57,9 @@ export default {
       }
       return ans
     }
+  },
+  mounted() {
+    this.reset()
   }
 }
 </script>

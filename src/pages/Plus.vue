@@ -3,6 +3,9 @@
     <table>
       <tr>
         <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/logo.png" />
           螳螂人加法表
         </th>
         <th v-for="i in items" :key="i">
@@ -13,7 +16,7 @@
         <th>
           {{ toM(i) }}
         </th>
-        <td v-for="j in items" :key="j">
+        <td v-for="j in items" :key="j" class="bold green">
           {{ toM(i + j) }}
         </td>
       </tr>

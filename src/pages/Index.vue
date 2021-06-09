@@ -6,6 +6,9 @@
           人類數學  
         </th>
         <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/logo.png" />
           螳螂人數學  
         </th>
       </tr>
@@ -13,7 +16,7 @@
         <td>
           {{i }}
         </td>
-        <td>
+        <td class="bold green">
           {{ toM(i) }}
         </td>
       </tr>
@@ -57,4 +60,9 @@ export default {
   table tr:nth-child(odd) td {
     background-color: #eee;
   }
+
+  td {
+    text-align: center;
+  }
+
 </style>

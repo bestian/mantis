@@ -30,7 +30,6 @@
           header
           class="text-grey-8"
         >
-          項目
         </q-item-label>
         <q-item to="/">數字表</q-item>
         <q-item to="/plus">加法表</q-item>
