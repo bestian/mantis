@@ -3,7 +3,10 @@
     <table>
       <tr>
         <th>
-          人類數學  
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/pi.png" />
+          人類數學
         </th>
         <th>
           <q-img style="height: 100px" 
