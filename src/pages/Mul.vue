@@ -3,18 +3,18 @@
     <table>
       <tr>
         <th>
-          人類數學  
+          螳螂人乘法表
         </th>
-        <th>
-          螳螂人數學  
+        <th v-for="i in items" :key="i">
+          {{toM(i)}}
         </th>
       </tr>
       <tr v-for="i in items" :key="i">
-        <td>
-          {{i }}
-        </td>
-        <td>
+        <th>
           {{ toM(i) }}
+        </th>
+        <td v-for="j in items" :key="j">
+          {{ toM(i * j) }}
         </td>
       </tr>
     </table>
@@ -26,7 +26,7 @@ export default {
   name: 'PageIndex',
   data() {
     return {
-      items: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
+      items: [1,2,3,4,5]
     }
   },
   methods: {
@@ -54,7 +54,11 @@ export default {
     padding: 8px;
   }
 
-  table tr:nth-child(odd) td {
+  td {
+    text-align: center;
+  }
+
+  th {
     background-color: #eee;
   }
 </style>
