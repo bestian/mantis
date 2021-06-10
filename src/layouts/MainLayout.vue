@@ -15,7 +15,7 @@
           螳螂人數學
         </q-toolbar-title>
 
-        <div>第1.3版</div>
+        <div>第1.4版</div>
       </q-toolbar>
     </q-header>
 

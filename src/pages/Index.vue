@@ -32,6 +32,12 @@
           src="https://bestian.github.io/mantis/binary.png" />
           二進制數學  
         </th>
+        <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/ring.png" />
+          星期鐘  
+        </th>
       </tr>
       <tr v-for="i in items" :key="i">
         <td>
@@ -48,6 +54,9 @@
         </td>
         <td class="bold gold">
           {{ toB(i) }}
+        </td>
+        <td class="bold red">
+          {{ toR(i) }}
         </td>
       </tr>
     </table>
@@ -94,6 +103,14 @@ export default {
         num = Math.floor(num / 2)
       }
       return ans.join('')
+    },
+    toR(num) {
+      var ans = []
+      while (num > 0) {
+        ans.unshift(num % 7)
+        num = Math.floor(num / 7)
+      }
+      return ans[ans.length-1]
     }
   }
 }

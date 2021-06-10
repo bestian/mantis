@@ -84,6 +84,27 @@
         </td>
       </tr>
     </table>
+    <table>
+      <tr>
+        <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/ring.png" />
+          星期鐘加法表
+        </th>
+        <th v-for="i in items" :key="i">
+          {{toR(i)}}
+        </th>
+      </tr>
+      <tr v-for="i in items" :key="i">
+        <th>
+          {{ toR(i) }}
+        </th>
+        <td v-for="j in items" :key="j" class="bold red">
+          {{ toR(i + j) }}
+        </td>
+      </tr>
+    </table>
   </q-page>
 </template>
 
@@ -127,6 +148,14 @@ export default {
         num = Math.floor(num / 2)
       }
       return ans.join('')
+    },
+    toR(num) {
+      var ans = []
+      while (num > 0) {
+        ans.unshift(num % 7)
+        num = Math.floor(num / 7)
+      }
+      return ans[ans.length-1]
     }
   }
 }
@@ -151,7 +180,7 @@ export default {
   th {
     background-color: #eee;
   }
-  
+
   th:first-child, td:first-child {
     width: 180px;
   }

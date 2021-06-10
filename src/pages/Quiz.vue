@@ -12,7 +12,10 @@
           src="https://bestian.github.io/mantis/frog.png" />
           <q-img v-if = "type == 'b'" style="height: 100px" 
           contain
-          src="https://bestian.github.io/mantis/binary.png" />小測驗</h4></div>
+          src="https://bestian.github.io/mantis/binary.png" />
+          <q-img v-if = "type == 'r'" style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/ring.png" />小測驗</h4></div>
     <div v-if = "type=='m'"><h4 class="bold green">{{toM(n)}} + {{toM(m)}} = ?<q-input type="text" name="ans" v-model="ans" @input="checkM()" placeholder="你的答案"/></h4></div>
 
     <div v-if = "type=='s'"><h4 class="bold brown">{{toS(n)}} + {{toS(m)}} = ?<q-input type="text" name="ans" v-model="ans" @input="checkS()" placeholder="你的答案"/></h4></div>
@@ -20,6 +23,8 @@
     <div v-if = "type=='f'"><h4 class="bold blue">{{toF(n)}} + {{toF(m)}} = ?<q-input type="text" name="ans" v-model="ans" @input="checkF()" placeholder="你的答案"/></h4></div>
 
     <div v-if = "type=='b'"><h4 class="bold gold">{{toB(n)}} + {{toB(m)}} = ?<q-input type="text" name="ans" v-model="ans" @input="checkB()" placeholder="你的答案"/></h4></div>
+
+    <div v-if = "type=='r'"><h4 class="bold red">{{toR(n)}} + {{toR(m)}} = ?<q-input type="text" name="ans" v-model="ans" @input="checkR()" placeholder="你的答案"/></h4></div>
 
     <div><q-btn size="xl" color = "primary" v-if = "win" @click="reset()">答對了! 按此再來</q-btn></div>
   </q-page>
@@ -34,14 +39,14 @@ export default {
       m:3,
       ans: '',
       win: false,
-      type: 's'
+      type: 'r'
     }
   },
   methods: {
     reset() {
       this.ans = null;
       this.win = false;
-      this.type = ['m','s','f','b'][Math.floor(Math.random()*4)];
+//      this.type = ['m','s','f','b','r'][Math.floor(Math.random()*5)];
       this.n = Math.floor(Math.random()*10 + 4);
       this.m = Math.floor(Math.random()*10 + 3);
     },
@@ -62,6 +67,11 @@ export default {
     },
     checkB() {
       if (this.fromB(this.ans) == this.n + this.m && this.isB(this.ans)) {
+        this.win = true
+      }
+    },
+    checkR() {
+      if (this.fromR(this.ans) == this.fromR(this.toR(this.n + this.m)) && this.isR(this.ans)) {
         this.win = true
       }
     },
@@ -100,6 +110,16 @@ export default {
       var ans = true;
       for (var i = 0; i < list.length; i++) {
          if (list[i] >= 2) {
+          ans = false
+         }
+       }
+       return ans
+    },
+    isR(t) {
+      const list = t.split('');
+      var ans = true;
+      for (var i = 0; i < list.length; i++) {
+         if (list[i] >= 7) {
           ans = false
          }
        }
@@ -166,6 +186,22 @@ export default {
       const list = String(m).split('');
       for (var i = list.length - 1; i >= 0; i--) {
         ans += list[i] * 2**(list.length - i - 1)
+      }
+      return ans
+    },
+    toR(num) {
+      var ans = []
+      while (num > 0) {
+        ans.unshift(num % 7)
+        num = Math.floor(num / 7)
+      }
+      return ans[ans.length-1]
+    },
+    fromR(m) {
+      var ans = 0;
+      const list = String(m).split('');
+      for (var i = list.length - 1; i >= 0; i--) {
+        ans += list[i] * 7**(list.length - i - 1)
       }
       return ans
     },

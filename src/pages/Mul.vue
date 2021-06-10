@@ -84,6 +84,27 @@
         </td>
       </tr>
     </table>
+    <table>
+      <tr>
+        <th>
+          <q-img style="height: 100px" 
+          contain
+          src="https://bestian.github.io/mantis/ring.png" />
+          星期鐘乘法表
+        </th>
+        <th v-for="i in items5" :key="i">
+          {{toR(i)}}
+        </th>
+      </tr>
+      <tr v-for="i in items5" :key="i">
+        <th>
+          {{ toR(i) }}
+        </th>
+        <td v-for="j in items5" :key="j" class="bold red">
+          {{ toR(i * j) }}
+        </td>
+      </tr>
+    </table>
   </q-page>
 </template>
 
@@ -95,7 +116,8 @@ export default {
       items: [1,2,3,4,5],
       items2: [1,2,3,4,5,6,7],
       items3: [1,2,3],
-      items4: [1,2,3,4,5]
+      items4: [1,2,3,4,5],
+      items5: [1,2,3,4,5,6]
     }
   },
   methods: {
@@ -130,6 +152,14 @@ export default {
         num = Math.floor(num / 2)
       }
       return ans.join('')
+    },
+    toR(num) {
+      var ans = []
+      while (num > 0) {
+        ans.unshift(num % 7)
+        num = Math.floor(num / 7)
+      }
+      return ans[ans.length-1]
     }
   }
 }
