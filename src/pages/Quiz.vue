@@ -46,7 +46,7 @@ export default {
     reset() {
       this.ans = null;
       this.win = false;
-//      this.type = ['m','s','f','b','r'][Math.floor(Math.random()*5)];
+      this.type = ['m','s','f','b','r'][Math.floor(Math.random()*5)];
       this.n = Math.floor(Math.random()*10 + 4);
       this.m = Math.floor(Math.random()*10 + 3);
     },
